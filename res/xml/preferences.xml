@@ -1,0 +1,20 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res/com.mridang.betamax" >
+
+    <PreferenceCategory
+        android:key="credentials"
+        android:title="@string/credentials" >
+        <EditTextPreference
+            android:key="username"
+            android:title="@string/username" />
+        <EditTextPreference
+            android:key="password"
+            android:title="@string/password" />
+        <ListPreference
+            android:entries="@array/providers"
+            android:entryValues="@array/providers"
+            android:key="provider"
+            android:title="@string/provider" />
+    </PreferenceCategory>
+
+</PreferenceScreen>
