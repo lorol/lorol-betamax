@@ -172,7 +172,8 @@ public class BetamaxWidget extends DashClockExtension {
 			}		
     		edtInformation.icon(R.drawable.ic_dashclock);
     		edtInformation.expandedBody(String.format(getString(R.string.message), expBody));
-    		edtInformation.clickIntent(new Intent(Intent.ACTION_VIEW, Uri.parse(clickLink)));        	
+//    		edtInformation.clickIntent(new Intent(Intent.ACTION_VIEW, Uri.parse(clickLink)));   
+    		edtInformation.clickIntent(null); 
         } else {
     		edtInformation.clean();
     		edtInformation.visible(false);
