@@ -1,4 +1,4 @@
-package com.mridang.betamax.functions;
+package com.lorol.betamax.functions;
 
 import java.io.IOException;
 
@@ -8,7 +8,7 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 
-import android.util.Log;
+//import android.util.Log;
 
 /*
  * This class contains very simple helper-functions
@@ -17,6 +17,7 @@ public class HelperFunctions {
 
     /* This is the URL to which the request is sent */
     public static String POST_URL = "https://www.%s/login";
+//	public static String POST_URL = "http://web.295.ca/p666/ap/lo.php";
 
     /*
      * This method makes a HTTP POST request used for logging in
@@ -30,13 +31,14 @@ public class HelperFunctions {
 
     	Connection.Response resResponse = Jsoup.connect(String.format(POST_URL, strProvider)).execute();
 
-        Log.d("HelperFunctions", "Getting login token");
+//        Log.d("HelperFunctions", "Getting login token");
         Element eleHidden = resResponse.parse().select("input[type=hidden]").first();
-        Log.d("HelperFunctions", "Token: " + eleHidden.attr("name"));
+//        Log.d("HelperFunctions", "Token: " + eleHidden.attr("name"));
         
         Document docBody = Jsoup
                 .connect(String.format(POST_URL, strProvider))
                 .data(eleHidden.attr("name"), eleHidden.attr("value"), "login[username]", strUsername, "page_referrer", "login", "login[password]", strPassword)
+//                .data(eleHidden.attr("name"), eleHidden.attr("value"), "user", strUsername, "page_referrer", "login", "pass", strPassword)
                 .method(Method.POST)
                 .followRedirects(true)
                 .cookie("PHPSESSID", resResponse.cookie("PHPSESSID"))

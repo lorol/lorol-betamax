@@ -1,12 +1,13 @@
-package com.mridang.betamax.activities;
+package com.lorol.betamax.activities;
 
 import android.os.Bundle;
+import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceManager;
 
-import com.mridang.betamax.R;
+import com.lorol.betamax.R;
 
 /*
  * This class is the activity which contains the preferences
@@ -40,7 +41,10 @@ public class WidgetSettings extends PreferenceActivity {
             	ListPreference listPreference = (ListPreference) prePreference;
                 int index = listPreference.findIndexOfValue(objValue.toString());
                 prePreference.setSummary(index >= 0 ? listPreference.getEntries()[index] : null);
-
+            
+            } else if (prePreference instanceof CheckBoxPreference) { 
+                // Display default summary
+            
             } else {
 
             	prePreference.setSummary(objValue.toString());
@@ -61,13 +65,22 @@ public class WidgetSettings extends PreferenceActivity {
 
         prePreference.setOnPreferenceChangeListener(sBindPreferenceSummaryToValueListener);
 
-        sBindPreferenceSummaryToValueListener.onPreferenceChange(prePreference,
-                PreferenceManager
-                .getDefaultSharedPreferences(prePreference.getContext())
-                .getString(prePreference.getKey(), ""));
-
+        
+        if (prePreference instanceof CheckBoxPreference) { 
+            sBindPreferenceSummaryToValueListener.onPreferenceChange(prePreference,
+                    PreferenceManager
+                    .getDefaultSharedPreferences(prePreference.getContext())
+            		.getBoolean(prePreference.getKey(), false));
+        
+        } else {
+        
+        	sBindPreferenceSummaryToValueListener.onPreferenceChange(prePreference,
+        			PreferenceManager
+        			.getDefaultSharedPreferences(prePreference.getContext())
+        			.getString(prePreference.getKey(), ""));
+        }
     }
-
+    
     /*
      * @see android.app.Activity#onPostCreate(android.os.Bundle)
      */
@@ -79,7 +92,8 @@ public class WidgetSettings extends PreferenceActivity {
         bindPreferenceSummaryToValue(findPreference("username"));
         bindPreferenceSummaryToValue(findPreference("password"));
         bindPreferenceSummaryToValue(findPreference("provider"));
-
+        bindPreferenceSummaryToValue(findPreference("scron"));
+        bindPreferenceSummaryToValue(findPreference("showon"));
     }
 
 }

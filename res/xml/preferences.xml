@@ -1,5 +1,5 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res/com.mridang.betamax" >
+    xmlns:app="http://schemas.android.com/apk/res/com.lorol.betamax" >
 
     <PreferenceCategory
         android:key="credentials"
@@ -9,7 +9,18 @@
             android:title="@string/username" />
         <EditTextPreference
             android:key="password"
+            android:password="true"
             android:title="@string/password" />
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="scron"
+            android:summary="@string/scron_info"
+            android:title="@string/scron_title" />
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="showon"
+            android:summary="@string/showon_info"
+            android:title="@string/showon_title" />
         <ListPreference
             android:entries="@array/providers"
             android:entryValues="@array/providers"

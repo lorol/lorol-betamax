@@ -4,11 +4,17 @@
     <string name="extension_name">Betamax</string>
     <string name="application_name">Dashclock Betamax Extension</string>
     <string name="credentials">Betamax Credentials</string>
-    <string name="status">Account balance — %1$s</string>
+    <string name="status">Balance: %1$s</string>
     <string name="message">%1$s</string>
     <string name="provider">Provider</string>
     <string name="preferences_title">Betamax Extension Settings</string>
     <string name="extension_info">Displays information about your Betamax balance.</string>
     <string name="password">Password</string>
+    <string name="scron_info">Update on screen wakeup</string>
+    <string name="scron_title">ScreenOn refresh</string>
+    <string name="showon_info">Always show</string>
+    <string name="showon_title">Persistent</string>
+    <string name="all_title">Rates Table</string>
+    <string name="all_click">http://backsla.sh/betamax</string>
 
 </resources>

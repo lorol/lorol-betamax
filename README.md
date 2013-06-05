@@ -1,4 +1,6 @@
-dashclock-pysakki
+lorol-betamax
 =================
 
-A Dashclock plugin that displays one-glimpse arrival timings for your selected bus and tram stops in Helsinki
+Dashclock plugin that displays the current balance of a Betamax VoIP account.
+Test for learning ...
+Forked from: https://github.com/mridang/dashclock-betamax
